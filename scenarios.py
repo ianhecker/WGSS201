@@ -31,5 +31,9 @@ class GeneratePersons:
         print("People Data:")
         if self.scenario is not 'Campus':
             for p in self.people:
-                print("Age: " + str(p.get_age()))
+                a = str(p.get_age())
+                s = str(p.get_sex())
+                sx = str(p.get_sexuality())
+                print("Age: %s Sex: %s Sexuality: %s" %
+                (a, s, sx))
         print('\n\n')

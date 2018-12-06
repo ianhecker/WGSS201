@@ -3,10 +3,6 @@
 #   WGSS201
 #   Final Project
 #   Passerby-Simulator
-#   Purpose: This code is meant to simulate walking by a stranger on the street, and
-#   being able to know facts about them. Statistics have been taken from:
-#   www.census.gov/quickfacts
-#
 '''
 from scenarios import GeneratePersons
 
@@ -23,7 +19,7 @@ def menu():
 def get_input():
     while(True):
         try:
-            i = int(input("\n  Type choice here > "))
+            i = int(input("\nSelection > "))
             return i
         except ValueError:
             print("Entered choice was not an integer")
