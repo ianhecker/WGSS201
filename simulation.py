@@ -5,8 +5,11 @@
 #   Passerby-Simulator
 '''
 from scenarios import GeneratePersons
+from statistics import Statistics
 
 simulation_time = 10
+
+s = Statistics()
 
 def menu():
     print("Enter a number below, and press enter to execute that option:")
@@ -29,13 +32,13 @@ def get_input():
 
 def run_choice(option):
     if option is 1:
-        g = GeneratePersons('Passerby')
+        g = GeneratePersons('Passerby', s)
     elif option is 2:
-        g = GeneratePersons('Bus')
+        g = GeneratePersons('Bus', s)
     elif option is 3:
-        g = GeneratePersons('Classroom')
+        g = GeneratePersons('Classroom', s)
     elif option is 4:
-        g = GeneratePersons('Campus')
+        g = GeneratePersons('Campus', s)
     else:
         print('------------------------------------------')
         print('Catch \'ya Later!')
@@ -54,6 +57,29 @@ if __name__ == '__main__':
     print("Welcome to the Passerby Simulator! \nThis project is meant to simulate " +
     "what it would be like to walk by \na completely random person on the street, in the U.S., " +
     "and be able \nto instantly know facts about them!\n")
+
+    print("  Clarifying The US Census:")
+    print("  Sexuality:")
+    print("  The US Census does not collect data on sexuality. LGBT Statistics are \n" +
+    "  taken from the following sources:")
+    print("------------------------------------------------------------------------------")
+    print("  + Gallup Poll 2017 LGBT Identifying-Adult Population Estimate for U.S.: %s%%" % (s.GP_US_ADULT_LGBT*100))
+    print()
+    print("  Race:")
+    print("  The US Census treats persons of Hispanic descent as an ethnicity, and\n " +
+    "  therefore has collected data on the premise that any of the following races \n " +
+    "  can be of Hispanic ethnicity.")
+    print("  The US Census categorizes races in its census data as ancestral descent from these countries:")
+    print("|------------------------------------------------------------------------------------------------------------|")
+    print("|              |        |                         |                | Native Hawaiian or     |                |")
+    print("| White        | Black  | Native American/Alaskan | Asian          | Other Pacific Islander | Two/More races |")
+    print("|------------------------------------------------------------------------------------------------------------|")
+    print("| Europe       | Africa | North America           | Far East       | Hawaii                 |                |")
+    print("| Middle East  |        | South America           | Southeast Asia | Guam                   |                |")
+    print("| North Africa |        | Central America         | Indian         | Samoa                  |                |")
+    print("|              |        |                         |                | Pacific Islands        |                |")
+    print("|------------------------------------------------------------------------------------------------------------|")
+    print('\n\n')
 
     option_chosen = 0
     while(option_chosen is not 5):

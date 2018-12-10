@@ -1,12 +1,13 @@
 from person import Person
 
 class GeneratePersons:
-    def __init__(self, scenario):
+    def __init__(self, scenario, statistics_instance):
         self.scenario = scenario
         self.population = self.determine_pop(scenario)
         self.people = []
+        self.s = statistics_instance
 
-        self.generate_persons()
+        self.generate_persons(self.s)
         self.print_scenario()
 
     def determine_pop(self, scenario):
@@ -19,9 +20,9 @@ class GeneratePersons:
         return population[scenario]
 
 
-    def generate_persons(self):
+    def generate_persons(self, s):
         for i in range(self.population):
-            p = Person()
+            p = Person(s)
             self.people.append(p)
 
     def print_scenario(self):
@@ -29,11 +30,15 @@ class GeneratePersons:
         print("Simulation: " + self.scenario)
         print("Population: " + str(self.population))
         print("People Data:")
-        if self.scenario is not 'Campus':
+        #if self.scenario is not 'Campus':
+        if True:
+            print('\nAge Sex    LGBT   Hispanic Race')
             for p in self.people:
-                a = str(p.get_age())
-                s = str(p.get_sex())
-                sx = str(p.get_sexuality())
-                print("Age: %s Sex: %s Sexuality: %s" %
-                (a, s, sx))
+                a = p.get_age()
+                s = p.get_sex()
+                sx = p.get_LGBT()
+                h = p.get_hispanic()
+                r = p.get_race()
+                print('%-3s %-6s %-6s %-8s %s' % (a, s, sx, h, r))
+
         print('\n\n')
