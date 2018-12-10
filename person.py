@@ -8,7 +8,8 @@ class Person:
             'sex': None,
             'race': None,
             'LGBT': None,
-            'hispanic': None
+            'hispanic': None,
+            'intersex': None
         }
         self.s = statistics_instance
         #--------------------
@@ -17,6 +18,7 @@ class Person:
         self.init_LGBT()
         self.init_hispanic(self.data['age'], self.data['sex'])
         self.init_race(self.data['age'], self.data['sex'], self.data['hispanic'])
+        self.init_intersex()
 
 
     def init_age(self):
@@ -33,9 +35,10 @@ class Person:
 
     def init_race(self, age, sex, hispanic):
         self.data['race'] = self.s.return_race(age, sex, hispanic)
+
+    def init_intersex(self):
+        self.data['intersex'] = self.s.return_intersex()
     #----------------------------------------------------------
-
-
     def get_age(self):
         return self.data['age']
 
@@ -50,3 +53,6 @@ class Person:
 
     def get_race(self):
         return self.data['race']
+
+    def get_intersex(self):
+        return self.data['intersex']

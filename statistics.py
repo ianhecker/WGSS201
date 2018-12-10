@@ -23,6 +23,20 @@ class Statistics:
         self.GP_US_ADULT_MALE_LGBT = 0.039
         self.GP_US_ADULT_FEMALE_LGBT = 0.051
         self.GP_US_ADULT_TRANSGENDER = 0.006
+
+        #Williams Institute
+        #Paper by Gary J. Gates April 2011
+        #How Many People are Lesbian, Gay, Bisexual, and Transgender?
+        #https://williamsinstitute.law.ucla.edu/wp-content/uploads/Gates-How-Many-People-LGBT-Apr-2011.pdf
+        self.WI_US_SAME_SEX_ATTRACTION = 0.11
+
+        #Intersex Society of North America
+        #People born with intersex traits
+        #http://www.isna.org/faq/frequency
+        #1/1500 born w/ intersex traits
+        self.ISNA_INTERSEX = 0.0006
+
+        #Key to understand column order of formatted US Census Data sheets
         self.CSV_RACE_KEY = ['White', 'Black', 'Native American/Alaskan', 'Asian', 'Native Hawaiian/Other Pacific Islander', 'Two Or More Races']
 
         #US Census
@@ -118,10 +132,18 @@ class Statistics:
         else:
             return False
 
-
+    #Returns LGBT
     def return_LGBT(self):
         num = random.uniform(0,1)
         if num <= self.GP_US_ADULT_LGBT:
+            return True
+        else:
+            return False
+
+    #Returns Born w/ Intersex traits
+    def return_intersex(self):
+        num = random.uniform(0,1)
+        if num <= self.ISNA_INTERSEX:
             return True
         else:
             return False
