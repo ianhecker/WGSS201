@@ -30,8 +30,8 @@ class GeneratePersons:
         print("Simulation: " + self.scenario)
         print("Population: " + str(self.population))
         print("People Data:")
-        #if self.scenario is not 'Campus':
-        if True:
+
+        if self.scenario is not 'Campus':
             print('\nAge Sex    LGBT   Hispanic Race')
             for p in self.people:
                 a = p.get_age()
